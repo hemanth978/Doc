@@ -1,0 +1,7 @@
+Jenkins can be enormously extended by the usage of several plugins, there comes a plugin which can be used for the backup management in Jenkins - ThinBackup plugin. This plugin backs up the job specific configuration files.
+
+To set up master slave conf:-
+Description: The purpose of Node.
+# of executors: The maximum number of concurrent build that Jenkins may perform on this agent.
+Remote root directory: The path or directory of the agent machine(example: complete-path/slave1).
+Launch Method: Select Launch agent via Java Web Start. If you fail to find this option, go to Manage Jenkins → Configure Global Security and make sure that radio button Random is selected for TCP port for JNLP agents and Enable Slave → Master Access Control is checked.
