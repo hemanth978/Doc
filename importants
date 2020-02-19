@@ -1,8 +1,15 @@
 Q :what is meant by load balancer?
 Ans:Elastic Load Balancing distributes incoming application or network traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses, in multiple Availability Zones. Elastic Load Balancing scales your load balancer as traffic to your application changes over time. It can automatically scale to the vast majority of workloads.
+
 Q:what are the load balancer? example
 (Ans) Elastic load balancer->in this we have a 3 different load balancers 1)Application load balancer 2)Nerwork load balancers 3)classic load balancers
+
 Q: what is REST and REST Protocol?
 Ans: Representational state transfer (REST) is a software architectural style that defines a set of constraints to be used for creating Web services. Web services that conform to the REST architectural style, called RESTful Web services, provide interoperability between computer systems on the Internet. RESTful Web services allow the requesting systems to access and manipulate textual representations of Web resources by using a uniform and predefined set of stateless operations.
   When HTTP is used, as is most common, the operations (HTTP methods) available are GET, HEAD, POST, PUT, PATCH, DELETE, CONNECT, OPTIONS and TRACE.
   
+what is the port number of https ?
+443
+
+what is the port number of ssh?
+22
