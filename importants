@@ -13,3 +13,6 @@ what is the port number of https ?
 
 what is the port number of ssh?
 22
+
+Q: where can we see the booting errors in linux?
+Ans:/var/log/dmesg.log and /var/log/boot
