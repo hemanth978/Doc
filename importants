@@ -16,3 +16,6 @@ what is the port number of ssh?
 
 Q: where can we see the booting errors in linux?
 Ans:/var/log/dmesg.log and /var/log/boot
+
+Q: When we start the centos7 its going to emergency mode and showing unmount the /sysroot error message?
+Ans:first check "umount /dev/sda3" and give "fsck /dev/sda3" if not works try "xfs_repair /dev/sda3 " will work for this
