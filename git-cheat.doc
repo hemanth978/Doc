@@ -1,0 +1,139 @@
+
+installation 
+$yum install git*
+$git --version
+$which git -> to check where it has installed
+$yum remove git
+
+configuration
+$git config --global user.name "hema"
+$git config --global user.email "hema@mail.com"
+$git config --global color.ui auto
+$git config --list  -> to show configuration
+$git config --global core.editor
+$git config --global alias.co checkout ->git co
+$git config --global alias.br branch ->git br
+
+initial steps
+
+$git init
+
+$git add <file_name>/*. -> it will stage the file
+
+$git reset HEAD <file name> to unstage the staged file
+$git checkout --<file> if you modify an existing file and again need to discard changes before stage the file or reset the file from unstage area to previous stage
+$git checkout commit id --file name -> if we discard from repository
+ 
+$git commit -m "message"
+$git commit -am "message" -> it will skip the staging area and directly go to commiting 
+
+if you want to clone the existing remoteo-repo into local directory 
+$git clone <url>
+
+to checking the status of the files:-
+$git status -> to check the status of the file
+$git status -s /--short
+
+$git diff ->shows current status d/f b/n staged and unstaged
+$git diff --cached  
+$git diff --staged 
+$git diff c.id1 c.id2 -> it will compare two d/f commits
+$git diff c.id -> it will give d/f of that perticualar c.id time
+
+Moving the files
+$git mv <source file> <destination file>
+          or
+$mv <sr file> <ds file>
+$git rm <sr file>
+$git add <ds file>
+
+viewing the commit history
+$git log -> it shows by default most recent commits to older but we have more option as below
+$git log -p (--patch) -number(2) ->shows patch o/p of each commit and you can also limit entire by giving number
+$git log --stat ->shows how many files were changed and lines added and removed in those files and also gives summery of info at end
+$git log --pretty=oneline ->print each line of the commit on single line
+$git log --oneline --decorate --graph --all -> to see grapical view
+$git log --pretty=formate :"%h-%an, %ar : %s" -> this will print reqired formate
+$git log --since=2.weeks  
+	 --author
+	 --grep are options
+
+Undoing things
+$git commit --amend -> this commit replaces the result of the previous commit
+$git reset HEAD <file> -> unstaging a staged file
+$git checkout --<file> -> unmodifying a modified file
+
+Working with remote repo
+$git remote -> to show current remote
+$git remote -v -> to display our remotes like url
+$git remote add <short name/origin> <url>  -> TO add remote repository
+$git fetch <remote> 
+$git pull <remote>
+$git push <remote> <branch>
+$git remote show origin -> to inspecting a remote
+$git remote rename <oldname> <new name>
+$git remote remove <name/origin>
+		or
+$git remote rm <name>
+
+Git branching
+$git branch <testing> ->to create testing branch
+$git checkout <testing> -> to switching into the testing branch
+$git checkout -b <new branch name> -> create and switching into the branch
+$git merge <branch name> -> it will merge the data from branch name to current branch
+$git branch -v ->it will show the last commit on each branch
+$git branch --merged -> to see already merged branch
+$git branch --nomerged -> to see unmerged branches
+$git branch --no-merged master ->to see what is not merged into master branch,just checkout the unmerged branch give this cmd
+
+$git ls-remote <remote> or git remote show <remote> -> to view full list of remote references
+$git clone -o <remote name> <url> -> it will change the remote name while cloning from remote repo
+$git fetch <origin> <url> -> to view updated data from remote repo inorder to download need to give merge cmd
+$git push origin <branch name> -> it will create "branch name" branch into the outer world with same name but if you want to give a new name on remote then
+$git push origin branch name :remote branch name
+
+Tracking branches
+$git checkout --track origin/serverfix -> it will switch and track the branch
+$git branch -u origin/branchname -> to set upstram branch
+$git branch -vv ->to checking tracking branches
+
+
+case
+whenever we have seen conflict error messages then
+$git status ->it will shows conflicted file so just open that file by editor and remove <<<---lines in that file then add that file hope it will never shows error conflict
+$git mergetool -> this is graphical tool 
+
+Taggings
+$git tag -L -> to listing the tags
+$git tag -L "v1.8.5*"
+$git tag -a v1.4 -m "my version 1.4" -> to create Annotated tag
+$git show -> display taggig details
+$git tag v1.4-lw -> it will create light weight tag
+
+case 
+if you want to tag project at v1.2 for perticular commit then copy the git file name from history(964f16d3...) and paste below
+$git log --pretty=oneline
+$git tag -a v1.2 964f16d3...
+$git show v1.2
+
+sharing a tag
+$git push origin <tag name> -> to push tag into a remote server
+$git push origin --tags -> it will push all tags and both type of tags(l.w and annotated)
+
+Deleting tags
+$git tag -d <tagname> -> to delete locally
+$git push <remote/origin> :refs/tags/<tagname>:
+		or
+$git push origin --delete <tagname> -> to delete remote as well
+
+Checkout tags
+$git checkout <tag/v2.00>  ->this will detach the HEAD only if you commit again then the tag will same but the new commit won't belong to any  branch and will be un reachable
+$git checkout -b version2 2.0.0
+
+
+case 
+Rebasing
+
+$git checkout master
+$git rebase branch_name ->then it will rebase the entire data from branch_name to master branch.
+
